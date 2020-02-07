@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Confirmation</title>
+        <link rel="icon" type="image/png" href="resources/images/icons/favicon.ico"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="main.css"/>
+        <style>
+            .body{
+                background: #f5f2d0;
+            }
+
+        </style>
+    </h:head>
+    <h:body class="body">
+        <c:choose>
+            <c:when test="#{signUp.register() == 'Success'}">
+                <b:alert severity="success"><strong>Well done!</strong> You successfully created your account.</b:alert>
+            </c:when>
+            <c:otherwise>
+                <b:alert severity="danger"><strong>Oh snap!</strong> Login ID already exists. Try a different one. </b:alert>
+            </c:otherwise>
+        </c:choose>
+        <h:form>
+
+            <p>
+                <b:commandButton id="return" value="Go back"
+                                 action="/index.xhtml?faces-redirect=true" look="success" size="md" />
+            </p>
+        </h:form>
+    </h:body>
+</html>
+

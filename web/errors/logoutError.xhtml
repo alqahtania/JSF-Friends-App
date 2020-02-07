@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Log Out Error</title>
+        <style>
+            .body{
+                background: #f5f2d0;
+            }
+
+        </style>
+    </h:head>
+    <h:body class="body">
+        <h2>Internal Error!</h2><br/><br/>
+
+        <b:alert severity="danger"><strong>Oh snap!</strong> Logout Failed. </b:alert>
+        <h:form>
+
+
+            <p>
+                <b:commandButton id="return" value="Return"
+                                 action="/index.xhtml?faces-redirect=true" look="success" size="md" />
+            </p>
+        </h:form>
+
+    </h:body>
+</html>
+

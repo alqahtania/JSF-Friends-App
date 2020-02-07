@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Sign Up</title>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style type="text/css">
+            /*            body {
+                            color: #999;
+                            background: #f3f3f3;
+                            font-family: 'Roboto', sans-serif;
+                        }*/
+
+            body {
+                background: url('images/background.jpg') no-repeat center center fixed;
+                background-attachment: fixed;
+                background-size: cover;
+
+            }
+            .form-control {
+                border-color: #eee;
+                min-height: 41px;
+                box-shadow: none !important;
+            }
+            .form-control:focus {
+                border-color: #5cd3b4;
+            }
+            .form-control, .btn {
+                border-radius: 3px;
+            }
+            .signup-form {
+                width: 500px;
+                margin: 0 auto;
+                padding: 30px 0;
+            }
+            .signup-form h2 {
+                color: white;
+                margin: 0 0 30px 0;
+                display: inline-block;
+                padding: 0 7px 10px 0;
+                border-bottom: 2px solid #5cd3b4;
+            }
+            .signup-form form {
+                color: #999;
+                border-radius: 7px;
+                margin-bottom: 15px;
+                background: black;
+                opacity: 0.7;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+            .signup-form .form-group {
+                margin-bottom: 20px;
+            }
+            .signup-form label {
+                font-weight: normal;
+                font-size: 13px;
+            }
+            .signup-form input[type="checkbox"] {
+                margin-top: 2px;
+            }
+            .signup-form .btn {
+                font-size: 16px;
+                font-weight: bold;
+                background: #5cd3b4;
+                border: none;
+                margin-top: 20px;
+                min-width: 140px;
+            }
+            .signup-form .btn:hover, .signup-form .btn:focus {
+                background: #41cba9;
+                outline: none !important;
+            }
+            .signup-form a {
+                color: #5cd3b4;
+                text-decoration: underline;
+            }
+            .signup-form a:hover {
+                text-decoration: none;
+            }
+            .signup-form form a {
+                color: #5cd3b4;
+                text-decoration: none;
+            }
+            .signup-form form a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </h:head>
+    <h:body>
+
+
+        <div class="signup-form">
+            <b:form class="form-horizontal">
+                <div class="col-xs-8 col-xs-offset-4">
+                    <h2>Sign Up</h2>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Username</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="text" class="form-control" name="username" required="true" requiredMessage="The Username field cannot be empty"
+                                     title="Please enter your Username" value="#{signUp.loginID}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Password</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="password" class="form-control" name="password" required="true" requiredMessage="The password field cannot be empty"
+                                     title="Please enter your password"
+                                     value="#{signUp.password}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Gender</label>
+                    <div class="col-xs-8">
+                        <b:selectOneMenu class="control-label col-xs-4" value="#{signUp.gender}" required="true" requiredMessage="The gender field cannot be empty"
+                                         title="Please select your gender">
+                            <f:selectItem itemLabel="Select Gender"/>
+                            <f:selectItem itemValue="MALE" itemLabel="Male" />
+                            <f:selectItem itemValue="FEMALE" itemLabel="Female" />
+                        </b:selectOneMenu>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Age</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="text" class="form-control" name="age" required="true" requiredMessage="The age field cannot be empty"
+                                     title="Please enter your age" value="#{signUp.age}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">City</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="text" class="form-control" name="city" required="true" requiredMessage="The city field cannot be empty"
+                                     title="Please enter your city" value="#{signUp.city}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Interest 1</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="text" class="form-control" name="interest1" required="false" value="#{signUp.interest1}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Interest 2</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="text" class="form-control" name="interest2" required="false" value="#{signUp.interest2}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-xs-3">Interest 3</label>
+                    <div class="col-xs-8">
+                        <b:inputText type="text" class="form-control" name="interest3" required="false" value="#{signUp.interest3}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-4">
+
+                        <b:commandButton type="submit" class="btn btn-primary btn-lg" action="confirmation/signUpConfirm.xhtml">Sign Up</b:commandButton>
+                    </div>
+                </div>
+            </b:form>
+            <div class="text-center">Already have an account? <h:link outcome="login.xhtml">Login here</h:link></div>
+        </div>
+
+        <div id="footer">
+            <ui:insert name="footer">
+                <ui:include src="sharedLayout/footer.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <!--===============================================================================================-->
+        <!--===============================================================================================-->
+
+
+    </h:body>
+</html>
+

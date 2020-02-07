@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Update Account</title>
+        <link rel="icon" type="image/png" href="resources/images/icons/favicon.ico"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="main.css"/>
+        <style>
+            .body{
+                background: #f5f2d0;
+            }
+            .menu{
+                width: 15%;
+
+
+            }
+        </style>
+    </h:head>
+    <h:body class="body">
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="sharedLayout/header.xhtml"/>
+            </ui:insert>
+        </div>
+        <h2>Update Information</h2>
+        <b:form>
+
+            <strong>Gender *</strong><br/>
+            <h:selectOneMenu class="menu" id="gender"
+                             value="#{login.loginAccount.userGenderIn}"
+                             required="true"
+                             requiredMessage="Please select the gender.">
+                <f:selectItem itemLabel="Gender"/>
+                <f:selectItem  itemLabel="Male" itemValue="MALE"/>
+                <f:selectItem  itemLabel="Female" itemValue="FEMALE" />
+            </h:selectOneMenu>
+
+            <br/><br/>
+
+
+            <b:row>
+
+                <b:inputText placeholder="#{login.loginAccount.age}" label="Age" id="age" span="2" required ="true"
+                             requiredMessage="Age cannot be empty"
+                             title="Please enter the first age in the range"
+                             value="#{login.loginAccount.userAgeIn}">
+                    <f:convertNumber integerOnly="true"/>
+                </b:inputText>
+            </b:row>
+
+            <b:row>
+                <b:inputText placeholder="#{login.loginAccount.city}" label="City" id="city" span="2" required ="true"
+                             requiredMessage="City cannot be empty"
+                             title="Please enter the city"
+                             value="#{login.loginAccount.userCityIn}">
+                </b:inputText>
+            </b:row>
+
+
+
+            <b:row>
+                <b:inputText placeholder="#{login.loginAccount.interest1}" label="Interest1" id="interest1" span="2" required ="fale"
+                             requiredMessage="Interest cannot be empty"
+                             title="Please enter the interest"
+                             value="#{login.loginAccount.userInterest1In}">
+
+                </b:inputText>
+            </b:row>
+            <b:row>
+                <b:inputText placeholder="#{login.loginAccount.interest2}" label="Interest2" id="interest2" span="2" required ="fale"
+                             requiredMessage="Interest cannot be empty"
+                             title="Please enter the interest"
+                             value="#{login.loginAccount.userInterest2In}">
+
+                </b:inputText>
+            </b:row>
+            <b:row>
+                <b:inputText placeholder="#{login.loginAccount.interest3}" label="Interest3" id="interest3" span="2" required ="fale"
+                             requiredMessage="Interest cannot be empty"
+                             title="Please enter the interest"
+                             value="#{login.loginAccount.userInterest3In}">
+
+                </b:inputText>
+            </b:row>
+
+            <b:button id="submit" value="Cancel"  outcome="welcome.xhtml?faces-redirect=true"  size="md"/> &nbsp;
+
+
+            <b:commandButton id="submit2" value="Save"  action="#{login.loginAccount.updateUserInfo()}" look="primary" size="md"/>
+        </b:form>
+    </h:body>
+</html>
+

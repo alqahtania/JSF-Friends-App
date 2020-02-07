@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Messages</title>
+        <link rel="icon" type="image/png" href="resources/images/icons/favicon.ico"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet" href="main.css"/>
+        <style>
+            .body{
+                background: #f5f2d0;
+            }
+
+        </style>
+    </h:head>
+    <h:body class="body">
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="sharedLayout/header.xhtml"/>
+            </ui:insert>
+        </div>
+
+        <h2>Unread Messages</h2>
+        <c:choose>
+            <c:when test="#{login.loginAccount.unreadMssg().size() == 0}">
+                <h3>No new messages yet!</h3>
+            </c:when>
+            <c:otherwise>
+                <b:form>
+                    <b:dataTable value="#{login.loginAccount.unreadMssg()}" var="obj" styleClass="order-table">
+                        <h:column>
+                            <f:facet name="header">From</f:facet>
+                            <h:outputText value="#{obj}"></h:outputText>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Messages</f:facet>
+                            <b:commandButton id="submit"  value="Messages" action="#{login.loginAccount.messagesInfo(obj)}" look="primary" size="md"></b:commandButton>
+                        </h:column>
+                    </b:dataTable>
+                </b:form>
+            </c:otherwise>
+        </c:choose>
+
+
+        <h2>All Messages</h2>
+        <c:choose>
+            <c:when test="#{login.loginAccount.allWhoMssged().size() == 0}">
+                <h3>No messages yet! Go to the friends page to message your friends.</h3>
+            </c:when>
+            <c:otherwise>
+                <b:form>
+                    <b:dataTable value="#{login.loginAccount.allWhoMssged()}" var="obj2" styleClass="order-table">
+                        <h:column>
+                            <f:facet name="header">User</f:facet>
+                            <h:outputText value="#{obj2}"></h:outputText>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Messages</f:facet>
+                            <b:commandButton id="submit"  value="Messages" action="#{login.loginAccount.messagesInfo(obj2)}" look="primary" size="md"></b:commandButton>
+                        </h:column>
+                    </b:dataTable>
+                </b:form>
+            </c:otherwise>
+        </c:choose>
+
+
+    </h:body>
+</html>
+
